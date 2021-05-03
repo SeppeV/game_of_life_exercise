@@ -201,6 +201,7 @@ def get_bottomright(grid, width, height, x, y):
 
 
 def get_neighbours(grid, width, height, x, y):
+
     """Return a list of values of all 8 neighbours of the cell.
 
     grid: the grid
@@ -209,10 +210,21 @@ def get_neighbours(grid, width, height, x, y):
     x: the x-position of the cell
     y: the y-position of the cell
     """
-    return None
+
+    neighbours = []
+    neighbours.append(get_topleft(grid, x, y))
+    neighbours.append(get_top(grid, x, y))
+    neighbours.append(get_topright(grid, width, x, y))
+    neighbours.append(get_right(grid, width, x, y))
+    neighbours.append(get_bottomright(grid, width, height, x, y))
+    neighbours.append(get_bottom(grid, height, x, y))
+    neighbours.append(get_bottomleft(grid, height, x, y))
+    neighbours.append(get_left(grid, x, y))
+    return neighbours
 
 
 def count_neighbours(grid, width, height, x, y):
+
     """Return the number of living neighbours.
 
     The neighbours are living if they are not 0.
@@ -223,7 +235,9 @@ def count_neighbours(grid, width, height, x, y):
     x: the x-position of the cell
     y: the y-position of the cell
     """
-    return None
+
+    aantal = sum(get_neighbours(grid, width, height, x, y))
+    return aantal
 
 
 def live_or_die(grid, width, height, x, y):
@@ -242,6 +256,7 @@ def live_or_die(grid, width, height, x, y):
     x: the x-position of the cell
     y: the y-position of the cell
     """
+
     return None
 
 
