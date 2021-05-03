@@ -177,6 +177,7 @@ def get_bottomleft(grid, height, x, y):
 
 
 def get_bottomright(grid, width, height, x, y):
+
     """Return the value on the bottom right of the cell.
 
     grid: the grid
@@ -188,7 +189,13 @@ def get_bottomright(grid, width, height, x, y):
     If the cell is on the last row, return 0.
     If the cell is on the last column , return 0.
     """
-    return None
+
+    if x == height - 1:
+        return 0
+    if y == width - 1:
+        return 0
+    number_bottomright = grid[x + 1][y + 1]
+    return number_bottomright
 
 
 def get_neighbours(grid, width, height, x, y):
