@@ -94,10 +94,11 @@ def get_top(grid, x, y):
     If the cell is on the top row, return 0.
     """
 
-    if x == 0:
+    if y == 0:
         return 0
-    number_above = grid[y][x - 1]
+    number_above = grid[y - 1][x]
     return number_above
+
 
 
 def get_bottom(grid, height, x, y):
@@ -111,9 +112,10 @@ def get_bottom(grid, height, x, y):
 
     If the cell is on the bottom row, return 0.
     """
-    if x == height - 1:
+
+    if y == height - 1:
         return 0
-    number_under = grid[x][y + 1]
+    number_under = grid[y + 1][x]
     return number_under
 
 
@@ -149,11 +151,11 @@ def get_topright(grid, width, x, y):
     If the cell is on the last column , return 0.
     """
 
-    if x == 0:
+    if x == width - 1:
         return 0
-    if y == width - 1:
+    if y == 0:
         return 0
-    number_topright = grid[x - 1][y + 1]
+    number_topright = grid[y - 1][x + 1]
     return number_topright
 
 def get_bottomleft(grid, height, x, y):
@@ -168,13 +170,13 @@ def get_bottomleft(grid, height, x, y):
     If the cell is on the last row, return 0.
     If the cell is on the first column , return 0.
     """
-    if x == height - 1:
-        return 0
-    if y == 0:
-        return 0
-    number_bottomleft = grid[x + 1][y - 1]
-    return number_bottomleft
 
+    if x == 0:
+        return 0
+    if y == height - 1:
+        return 0
+    number_bottomleft = grid[y + 1][x - 1]
+    return number_bottomleft
 
 def get_bottomright(grid, width, height, x, y):
 
@@ -194,7 +196,7 @@ def get_bottomright(grid, width, height, x, y):
         return 0
     if y == width - 1:
         return 0
-    number_bottomright = grid[x + 1][y + 1]
+    number_bottomright = grid[y + 1][x + 1]
     return number_bottomright
 
 
