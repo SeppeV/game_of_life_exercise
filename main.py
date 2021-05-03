@@ -77,9 +77,10 @@ def get_right(grid, width, x, y):
 
     If the cell is on the right border, return 0.
     """
-    if y == 0:
-        return False
-    number_right = grid[x][y + 1]
+
+    if x == width - 1:
+        return 0
+    number_right = grid[y][x + 1]
     return number_right
 
 def get_top(grid, x, y):
@@ -93,11 +94,14 @@ def get_top(grid, x, y):
     If the cell is on the top row, return 0.
     """
 
-
-    return
+    if x == 0:
+        return 0
+    number_above = grid[y][x - 1]
+    return number_above
 
 
 def get_bottom(grid, height, x, y):
+
     """Return the value below of the cell.
 
     grid: the grid
@@ -107,10 +111,15 @@ def get_bottom(grid, height, x, y):
 
     If the cell is on the bottom row, return 0.
     """
-    return None
+    if x == height - 1:
+        return 0
+    number_under = grid[x][y + 1]
+    return number_under
+
 
 
 def get_topleft(grid, x, y):
+
     """Return the value on the top left of the cell.
 
     grid: the grid
@@ -120,10 +129,15 @@ def get_topleft(grid, x, y):
     If the cell is on the top row, return 0.
     If the cell is on the left column, return 0.
     """
-    return None
-
+    if x == 0:
+        return 0
+    if y == 0:
+        return 0
+    number_topleft = grid[x - 1][y - 1]
+    return number_topleft
 
 def get_topright(grid, width, x, y):
+
     """Return the value on the top right of the cell.
 
     grid: the grid
@@ -134,10 +148,16 @@ def get_topright(grid, width, x, y):
     If the cell is on the top row, return 0.
     If the cell is on the last column , return 0.
     """
-    return None
 
+    if x == 0:
+        return 0
+    if y == width - 1:
+        return 0
+    number_topright = grid[x - 1][y + 1]
+    return number_topright
 
 def get_bottomleft(grid, height, x, y):
+
     """Return the value on the bottom left of the cell.
 
     grid: the grid
@@ -148,7 +168,12 @@ def get_bottomleft(grid, height, x, y):
     If the cell is on the last row, return 0.
     If the cell is on the first column , return 0.
     """
-    return None
+    if x == height - 1:
+        return 0
+    if y == 0:
+        return 0
+    number_bottomleft = grid[x + 1][y - 1]
+    return number_bottomleft
 
 
 def get_bottomright(grid, width, height, x, y):
