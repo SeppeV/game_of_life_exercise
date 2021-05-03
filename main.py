@@ -23,25 +23,35 @@ CELL_HEIGHT = 25
 
 
 def create_row_zeros(length):
-    """Create a list of zeros of the given length
 
+    """Create a list of zeros of the given length
     length: the number of zeros in the list
     """
-    return None
+
+    result = []
+    for i in range(length):
+        result.append(0)
+    return result
 
 
 def create_empty_grid(width, height):
+
     """Create an empty grid of size width x height
-
     All cells are 0 indicating the all cells are dead.
-
     width: the width of the grid in cells
     height: the height of the grid in cells
     """
-    return None
 
+    result = []
+    for i in range(height):
+        x = []
+    for j in range(width):
+        x.append(0)
+        result.append(x)
+    return result
 
 def get_left(grid, x, y):
+
     """Return the value on the left of the cell.
 
     grid: the grid
@@ -50,10 +60,14 @@ def get_left(grid, x, y):
 
     If the cell is on the left border, return 0.
     """
-    return None
 
+    if x == 0:
+        return False
+    number_left = grid[y][x - 1]
+    return number_left
 
 def get_right(grid, width, x, y):
+
     """Return the value on the right of the cell.
 
     grid: the grid
@@ -63,10 +77,13 @@ def get_right(grid, width, x, y):
 
     If the cell is on the right border, return 0.
     """
-    return None
-
+    if y == 0:
+        return False
+    number_right = grid[x][y + 1]
+    return number_right
 
 def get_top(grid, x, y):
+
     """Return the value above of the cell.
 
     grid: the grid
@@ -75,7 +92,9 @@ def get_top(grid, x, y):
 
     If the cell is on the top row, return 0.
     """
-    return None
+
+
+    return
 
 
 def get_bottom(grid, height, x, y):
