@@ -241,6 +241,7 @@ def count_neighbours(grid, width, height, x, y):
 
 
 def live_or_die(grid, width, height, x, y):
+
     """Return True if the current cell lives, False if it dies.
 
     The current cell keeps living if it was currently alive,
@@ -257,8 +258,16 @@ def live_or_die(grid, width, height, x, y):
     y: the y-position of the cell
     """
 
-    return None
+    alive = count_neighbours(grid, width, height, x, y)
+    if grid[y][x] == False:
+        if alive == 3:
+            return True
 
+    if grid[y][x] == True:
+        if alive == 2 or alive == 3:
+            return True
+
+    return False
 
 def update_grid(grid, width, height):
     """Update the grid according to the game of live rules"""
